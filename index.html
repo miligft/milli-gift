@@ -27,15 +27,10 @@
     h1, h2 {
       color: #c59d5f;
     }
-    img {
+    img, video {
       width: 100%;
       border-radius: 10px;
-      margin: 10px 0;
-    }
-    video {
-      width: 100%;
-      border-radius: 10px;
-      margin-top: 15px;
+      margin: 15px 0;
     }
     a.button {
       display: inline-block;
@@ -51,6 +46,10 @@
     a.button:hover {
       background: #a77b3f;
     }
+    audio {
+      width: 100%;
+      margin-top: 20px;
+    }
   </style>
 </head>
 <body>
@@ -63,8 +62,8 @@
   <h2>چطور ۱۰۰ گرم طلا هدیه بگیری؟</h2>
   <ol>
     <li>ویدیو آموزش ثبت‌نام رو ببین (خودکار پخش میشه)</li>
-    <li>سپس برای دریافت هدیه، از لینک زیر ثبت‌نام کن</li>
-    <li>بعد از ثبت‌نام، شروع کن به دعوت دوستان. هر ثبت‌نام = ۱۰ میلی طلا برای تو و اون فرد</li>
+    <li>برای دریافت هدیه، از لینک زیر ثبت‌نام کن</li>
+    <li>بعد از ثبت‌نام، دوستانت رو دعوت کن. هر ثبت‌نام = ۱۰ میلی طلا برای هر دو</li>
   </ol>
 
   <video src="https://files.catbox.moe/90f3d8.mp4" autoplay loop muted playsinline></video>
@@ -74,16 +73,10 @@
   <p style="margin-top:20px;">با دعوت ۱۰۰ نفر، ۱۰۰۰ میلی (یعنی ۱۰۰ گرم طلا به ارزش بیش از ۶۷ میلیون تومان) دریافت می‌کنی!</p>
 
   <h2 style="margin-top:30px;">موزیک انگیزشی</h2>
-  <div align="center">
-    <center>
-      <object type="application/x-shockwave-flash" id="dewplayer" name="dewplayer" data="http://dl.20script.ir/tools/old-music/20script-compalyer1.swf" width="200" height="20">
-        <param name="flashvars" value="mp3=https://nicmusic.musitraf.com/upload/2025/01/27/Beautiful_Relaxing_Music_1231354354.mp3&vol=100">
-      </object>
-      <div style="display:none">
-        <h1><a href="http://www.20script.ir/">ساخت كد آهنگ</a></h1>
-      </div>
-    </center>
-  </div>
+  <audio controls autoplay loop>
+    <source src="https://nicmusic.musitraf.com/upload/2025/01/27/Beautiful_Relaxing_Music_1231354354.mp3" type="audio/mp3">
+    مرورگر شما از پخش موزیک پشتیبانی نمی‌کند.
+  </audio>
 </div>
 
 </body>
