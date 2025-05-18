@@ -3,9 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>ماشین شانس اسلات فیکس</title>
+<title>ماشین شانس بزرگتر</title>
 <style>
-  /* بدنه و فونت */
   body, html {
     margin: 0; padding: 0; height: 100%;
     background: #111;
@@ -14,7 +13,6 @@
     -webkit-tap-highlight-color: transparent;
   }
 
-  /* کادر فیکس وسط صفحه با فاصله 30px (3 سانت) از همه طرف */
   #container {
     position: fixed;
     top: 30px;
@@ -22,45 +20,45 @@
     right: 30px;
     bottom: 30px;
     background: linear-gradient(135deg, #222, #111);
-    padding: 30px 20px;
+    padding: 30px;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border-radius: 12px;
-    box-shadow: 0 0 40px #00e676aa;
+    border-radius: 15px;
+    box-shadow: 0 0 50px #00e676aa;
     text-align: center;
     z-index: 9999;
   }
 
   h1 {
-    margin-bottom: 30px;
-    font-size: 2.5rem;
+    margin-bottom: 40px;
+    font-size: 3rem;
     color: #00e676;
-    text-shadow: 0 0 15px #00e676cc;
+    text-shadow: 0 0 20px #00e676cc;
     line-height: 1.2;
   }
 
   #slotMachine {
     display: flex;
-    gap: 15px;
+    gap: 25px;
     justify-content: center;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
     width: 100%;
-    max-width: 450px;
-    padding: 0 15px;
+    max-width: 600px;
+    padding: 0 30px;
     box-sizing: border-box;
   }
 
   .reel {
     flex: 1;
-    max-width: 130px;
-    height: 130px;
-    border-radius: 15px;
+    max-width: 180px;
+    height: 180px;
+    border-radius: 20px;
     background: #333;
-    border: 3px solid #00e676;
-    box-shadow: 0 0 20px #00e676bb inset;
+    border: 4px solid #00e676;
+    box-shadow: 0 0 30px #00e676bb inset;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -69,30 +67,30 @@
   .reel img {
     max-width: 85%;
     max-height: 85%;
-    border-radius: 12px;
+    border-radius: 15px;
     user-select: none;
-    box-shadow: 0 0 25px #00e676cc;
+    box-shadow: 0 0 35px #00e676cc;
   }
 
   #spinBtn {
     background-color: #00e676;
     color: #111;
     border: none;
-    border-radius: 18px;
-    padding: 18px 60px;
-    font-size: 26px;
+    border-radius: 22px;
+    padding: 22px 80px;
+    font-size: 30px;
     cursor: pointer;
-    box-shadow: 0 10px 35px #00e676aa;
+    box-shadow: 0 12px 40px #00e676aa;
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
-    max-width: 320px;
+    max-width: 360px;
     width: 90%;
-    margin: 0 auto 40px;
+    margin: 0 auto 50px;
     user-select: none;
   }
 
   #spinBtn:hover:not(:disabled) {
     background-color: #00c95e;
-    box-shadow: 0 12px 40px #00e676ff;
+    box-shadow: 0 14px 45px #00e676ff;
   }
 
   #spinBtn:disabled {
@@ -103,83 +101,83 @@
 
   #result {
     margin-top: 0;
-    font-size: 24px;
-    font-weight: 800;
+    font-size: 28px;
+    font-weight: 900;
     color: #00ff90;
-    min-height: 140px;
-    text-shadow: 0 0 25px #00ff90cc;
+    min-height: 180px;
+    text-shadow: 0 0 30px #00ff90cc;
     line-height: 1.3;
   }
 
   #result img {
-    margin-top: 20px;
-    width: 160px;
-    border-radius: 15px;
-    box-shadow: 0 0 35px #00ff90dd;
+    margin-top: 30px;
+    width: 220px;
+    border-radius: 20px;
+    box-shadow: 0 0 50px #00ff90dd;
   }
 
   #registerLink {
     display: none;
-    margin-top: 30px;
-    font-size: 24px;
+    margin-top: 40px;
+    font-size: 26px;
     font-weight: bold;
     text-decoration: none;
     color: white;
     background: linear-gradient(45deg, #00c8ff, #005f99);
-    padding: 16px 40px;
-    border-radius: 28px;
-    box-shadow: 0 7px 20px rgba(0, 200, 255, 0.7);
+    padding: 20px 50px;
+    border-radius: 32px;
+    box-shadow: 0 9px 25px rgba(0, 200, 255, 0.7);
     transition: background 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
     user-select: none;
     display: inline-block;
-    max-width: 320px;
+    max-width: 360px;
     word-break: keep-all;
   }
 
   #registerLink:hover {
     background: linear-gradient(45deg, #005f99, #00c8ff);
-    box-shadow: 0 10px 30px rgba(0, 200, 255, 0.9);
+    box-shadow: 0 12px 35px rgba(0, 200, 255, 0.9);
     color: white;
     text-decoration: none;
   }
 
-  /* مدیا کوئری برای موبایل کوچک‌تر */
-  @media (max-width: 400px) {
+  /* مدیا کوئری برای موبایل */
+  @media (max-width: 450px) {
     h1 {
-      font-size: 2rem;
-      margin-bottom: 25px;
+      font-size: 2.4rem;
+      margin-bottom: 35px;
     }
     #slotMachine {
       max-width: 100%;
-      gap: 10px;
-      padding: 0 10px;
+      gap: 18px;
+      padding: 0 25px;
     }
     .reel {
-      max-width: 100px;
-      height: 100px;
+      max-width: 140px;
+      height: 140px;
     }
     .reel img {
       max-width: 80%;
       max-height: 80%;
     }
     #spinBtn {
-      font-size: 22px;
-      padding: 14px 40px;
-      max-width: 280px;
-      margin-bottom: 30px;
+      font-size: 26px;
+      padding: 18px 60px;
+      max-width: 320px;
+      margin-bottom: 40px;
     }
     #result {
-      font-size: 20px;
-      min-height: 120px;
+      font-size: 24px;
+      min-height: 160px;
     }
     #result img {
-      width: 140px;
+      width: 180px;
     }
     #registerLink {
-      font-size: 20px;
-      padding: 14px 36px;
-      max-width: 280px;
+      font-size: 22px;
+      padding: 18px 44px;
+      max-width: 320px;
     }
   }
 </style>
@@ -187,7 +185,7 @@
 <body>
 
 <div id="container">
-  <h1>ماشین شانس اسلات</h1>
+  <h1>ماشین شانس اسلات بزرگ</h1>
   <div id="slotMachine">
     <div class="reel"><img src="https://s6.uupload.ir/files/apple-iphone-16-ultramarine-66dff64ce404d665a09e05f6_50e3.jpeg" alt="آیفون 16" /></div>
     <div class="reel"><img src="https://s6.uupload.ir/files/256-001_11_-laptop_case-tarhbox-ir_zx87.png" alt="لپ‌تاپ گیمینگ" /></div>
@@ -216,7 +214,7 @@
     if (spun) return; // فقط یکبار چرخش
     spun = true;
     spinBtn.disabled = true;
-    registerLink.style.display = 'none';
+    registerLink.style.display = 'none'; // لینک قبل از چرخش نباشه
     resultDiv.textContent = 'در حال چرخش...';
 
     let spins = 0;
