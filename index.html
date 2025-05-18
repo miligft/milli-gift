@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>ماشین شانس اسلات</title>
+<title>ماشین شانس اسلات فیکس</title>
 <style>
-  /* === استایل کادر اصلی */
+  /* بدنه و فونت */
   body, html {
     margin: 0; padding: 0; height: 100%;
     background: #111;
@@ -13,23 +13,25 @@
     color: white;
     -webkit-tap-highlight-color: transparent;
   }
+
+  /* کادر فیکس وسط صفحه با فاصله 30px (3 سانت) از همه طرف */
   #container {
+    position: fixed;
+    top: 30px;
+    left: 30px;
+    right: 30px;
+    bottom: 30px;
     background: linear-gradient(135deg, #222, #111);
     padding: 30px 20px;
-    border-radius: 0;
-    box-shadow: none;
-    width: 100vw;
-    height: 100vh;
-    text-align: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    transform: none;
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    box-sizing: border-box;
+    border-radius: 12px;
+    box-shadow: 0 0 40px #00e676aa;
+    text-align: center;
+    z-index: 9999;
   }
 
   h1 {
@@ -211,17 +213,16 @@
   let spun = false;
 
   spinBtn.addEventListener('click', () => {
-    if (spun) return; // فقط یکبار امکان چرخش
+    if (spun) return; // فقط یکبار چرخش
     spun = true;
     spinBtn.disabled = true;
     registerLink.style.display = 'none';
     resultDiv.textContent = 'در حال چرخش...';
 
-    // انیمیشن چرخش ساده با تغییر تصاویر سریع
     let spins = 0;
-    const maxSpins = 25; // تعداد تغییر تصویر برای انیمیشن
+    const maxSpins = 25;
     const spinInterval = setInterval(() => {
-      reels.forEach((img, idx) => {
+      reels.forEach((img) => {
         const randomPrize = prizes[Math.floor(Math.random() * prizes.length)];
         img.src = randomPrize.img;
         img.alt = randomPrize.name;
@@ -229,18 +230,12 @@
       spins++;
       if (spins >= maxSpins) {
         clearInterval(spinInterval);
-
-        // انتخاب جایزه نهایی به صورت تصادفی
         const finalPrize = prizes[Math.floor(Math.random() * prizes.length)];
-
-        // نمایش نهایی جایزه
-        reels.forEach((img, idx) => {
-          // هر سه ریل یک جایزه نهایی
+        reels.forEach((img) => {
           img.src = finalPrize.img;
           img.alt = finalPrize.name;
         });
-
-        resultDiv.innerHTML = `شما برنده ${finalPrize.name} شدید!`;
+        resultDiv.innerHTML = `شما برنده <strong>${finalPrize.name}</strong> شدید!`;
         registerLink.style.display = 'inline-block';
       }
     }, 120);
