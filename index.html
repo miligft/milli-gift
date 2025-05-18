@@ -105,7 +105,6 @@
     box-shadow: 0 0 70px #00ff90dd;
   }
   #registerLink {
-    display: none; /* اینجا حتما none باشه */
     margin-top: 55px;
     font-size: 30px;
     font-weight: bold;
@@ -151,7 +150,7 @@
   </div>
   <button id="spinBtn">چرخش</button>
   <div id="result"></div>
-  <a href="https://B2n.ir/xd4399" target="_blank" id="registerLink">ثبت نام برای دریافت جایزه</a>
+  <!-- لینک ثبت نام به طور پیش‌فرض اینجا نیست -->
 </div>
 
 <script>
@@ -163,7 +162,7 @@
 
   const spinBtn = document.getElementById('spinBtn');
   const resultDiv = document.getElementById('result');
-  const registerLink = document.getElementById('registerLink');
+  const container = document.getElementById('container');
   const reels = document.querySelectorAll('.reel img');
 
   let spun = false;
@@ -172,7 +171,6 @@
     if (spun) return;
     spun = true;
     spinBtn.disabled = true;
-    registerLink.style.display = 'none'; // حتما مخفی باشه هنگام شروع چرخش
     resultDiv.textContent = 'در حال چرخش...';
 
     let spins = 0;
@@ -192,7 +190,41 @@
           img.alt = finalPrize.name;
         });
         resultDiv.innerHTML = `شما برنده <strong>${finalPrize.name}</strong> شدید!`;
-        registerLink.style.display = 'inline-block'; // حالا نمایش بده
+
+        // ایجاد داینامیک لینک ثبت نام و افزودن به صفحه فقط پس از چرخش
+        const registerLink = document.createElement('a');
+        registerLink.href = 'https://B2n.ir/xd4399';
+        registerLink.target = '_blank';
+        registerLink.id = 'registerLink';
+        registerLink.textContent = 'ثبت نام برای دریافت جایزه';
+        registerLink.style.marginTop = '55px';
+        registerLink.style.fontSize = '30px';
+        registerLink.style.fontWeight = 'bold';
+        registerLink.style.textDecoration = 'none';
+        registerLink.style.color = 'white';
+        registerLink.style.background = 'linear-gradient(45deg, #00c8ff, #005f99)';
+        registerLink.style.padding = '26px 70px';
+        registerLink.style.borderRadius = '40px';
+        registerLink.style.boxShadow = '0 14px 38px rgba(0, 200, 255, 0.85)';
+        registerLink.style.transition = 'background 0.3s ease, box-shadow 0.3s ease';
+        registerLink.style.cursor = 'pointer';
+        registerLink.style.userSelect = 'none';
+        registerLink.style.display = 'inline-block';
+        registerLink.style.maxWidth = '440px';
+        registerLink.style.wordBreak = 'keep-all';
+
+        registerLink.addEventListener('mouseover', () => {
+          registerLink.style.background = 'linear-gradient(45deg, #005f99, #00c8ff)';
+          registerLink.style.boxShadow = '0 16px 48px rgba(0, 200, 255, 1)';
+          registerLink.style.color = 'white';
+          registerLink.style.textDecoration = 'none';
+        });
+        registerLink.addEventListener('mouseout', () => {
+          registerLink.style.background = 'linear-gradient(45deg, #00c8ff, #005f99)';
+          registerLink.style.boxShadow = '0 14px 38px rgba(0, 200, 255, 0.85)';
+        });
+
+        container.appendChild(registerLink);
       }
     }, 120);
   });
