@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>ماشین شانس داخل کادر کامل</title>
+<title>ماشین شانس</title>
 <style>
   body, html {
     margin: 0; padding: 0; height: 100%;
@@ -21,10 +21,10 @@
     right: 30px;
     bottom: 30px;
     background: linear-gradient(135deg, #222, #111);
-    padding: 40px 50px; /* padding بزرگ‌تر برای فاصله داخلی بهتر */
+    padding: 50px 60px;
     box-sizing: border-box;
     border-radius: 20px;
-    box-shadow: 0 0 60px #00e676aa;
+    box-shadow: 0 0 80px #00e676aa;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -34,64 +34,64 @@
   }
 
   h1 {
-    margin-bottom: 40px;
-    font-size: 3rem;
+    margin-bottom: 45px;
+    font-size: 3.6rem;
     color: #00e676;
-    text-shadow: 0 0 20px #00e676cc;
+    text-shadow: 0 0 22px #00e676cc;
     line-height: 1.2;
   }
 
   #slotMachine {
     display: flex;
-    gap: 30px;
+    gap: 38px;
     justify-content: center;
-    margin-bottom: 50px;
+    margin-bottom: 55px;
     width: 100%;
-    max-width: 680px; /* بیشتر برای فضای کافی */
+    max-width: 720px;
     padding: 0 20px;
     box-sizing: border-box;
   }
 
   .reel {
     flex: 1;
-    max-width: 200px;
-    height: 200px;
+    max-width: 220px;
+    height: 220px;
     border-radius: 20px;
     background: #333;
-    border: 4px solid #00e676;
-    box-shadow: 0 0 40px #00e676bb inset;
+    border: 5px solid #00e676;
+    box-shadow: 0 0 50px #00e676bb inset;
     display: flex;
     justify-content: center;
     align-items: center;
   }
 
   .reel img {
-    max-width: 90%;
-    max-height: 90%;
-    border-radius: 15px;
+    max-width: 88%;
+    max-height: 88%;
+    border-radius: 18px;
     user-select: none;
-    box-shadow: 0 0 45px #00e676cc;
+    box-shadow: 0 0 55px #00e676cc;
   }
 
   #spinBtn {
     background-color: #00e676;
     color: #111;
     border: none;
-    border-radius: 24px;
-    padding: 24px 90px;
-    font-size: 32px;
+    border-radius: 28px;
+    padding: 28px 110px;
+    font-size: 36px;
     cursor: pointer;
-    box-shadow: 0 14px 45px #00e676aa;
+    box-shadow: 0 16px 50px #00e676aa;
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
-    max-width: 400px;
+    max-width: 440px;
     width: 90%;
-    margin: 0 auto 60px;
+    margin: 0 auto 70px;
     user-select: none;
   }
 
   #spinBtn:hover:not(:disabled) {
     background-color: #00c95e;
-    box-shadow: 0 16px 50px #00e676ff;
+    box-shadow: 0 18px 58px #00e676ff;
   }
 
   #spinBtn:disabled {
@@ -102,43 +102,43 @@
 
   #result {
     margin-top: 0;
-    font-size: 32px;
+    font-size: 34px;
     font-weight: 900;
     color: #00ff90;
-    min-height: 200px;
-    text-shadow: 0 0 35px #00ff90cc;
+    min-height: 220px;
+    text-shadow: 0 0 40px #00ff90cc;
     line-height: 1.3;
   }
 
   #result img {
-    margin-top: 40px;
-    width: 260px;
-    border-radius: 20px;
-    box-shadow: 0 0 60px #00ff90dd;
+    margin-top: 50px;
+    width: 280px;
+    border-radius: 22px;
+    box-shadow: 0 0 70px #00ff90dd;
   }
 
   #registerLink {
     display: none;
-    margin-top: 50px;
-    font-size: 28px;
+    margin-top: 55px;
+    font-size: 30px;
     font-weight: bold;
     text-decoration: none;
     color: white;
     background: linear-gradient(45deg, #00c8ff, #005f99);
-    padding: 22px 60px;
-    border-radius: 36px;
-    box-shadow: 0 12px 30px rgba(0, 200, 255, 0.8);
+    padding: 26px 70px;
+    border-radius: 40px;
+    box-shadow: 0 14px 38px rgba(0, 200, 255, 0.85);
     transition: background 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
     user-select: none;
     display: inline-block;
-    max-width: 400px;
+    max-width: 440px;
     word-break: keep-all;
   }
 
   #registerLink:hover {
     background: linear-gradient(45deg, #005f99, #00c8ff);
-    box-shadow: 0 14px 40px rgba(0, 200, 255, 1);
+    box-shadow: 0 16px 48px rgba(0, 200, 255, 1);
     color: white;
     text-decoration: none;
   }
@@ -146,39 +146,39 @@
   /* مدیا کوئری برای موبایل */
   @media (max-width: 450px) {
     h1 {
-      font-size: 2.6rem;
-      margin-bottom: 38px;
+      font-size: 3.1rem;
+      margin-bottom: 42px;
     }
     #slotMachine {
       max-width: 100%;
-      gap: 20px;
-      padding: 0 20px;
+      gap: 25px;
+      padding: 0 16px;
     }
     .reel {
-      max-width: 150px;
-      height: 150px;
+      max-width: 170px;
+      height: 170px;
     }
     .reel img {
       max-width: 90%;
       max-height: 90%;
     }
     #spinBtn {
-      font-size: 28px;
-      padding: 22px 70px;
-      max-width: 360px;
-      margin-bottom: 45px;
+      font-size: 30px;
+      padding: 26px 80px;
+      max-width: 380px;
+      margin-bottom: 55px;
     }
     #result {
-      font-size: 26px;
-      min-height: 180px;
+      font-size: 28px;
+      min-height: 200px;
     }
     #result img {
-      width: 210px;
+      width: 240px;
     }
     #registerLink {
-      font-size: 24px;
-      padding: 20px 52px;
-      max-width: 360px;
+      font-size: 26px;
+      padding: 22px 58px;
+      max-width: 380px;
     }
   }
 </style>
@@ -186,7 +186,7 @@
 <body>
 
 <div id="container">
-  <h1>ماشین شانس اسلات بزرگ</h1>
+  <h1>ماشین شانس</h1>
   <div id="slotMachine">
     <div class="reel"><img src="https://s6.uupload.ir/files/apple-iphone-16-ultramarine-66dff64ce404d665a09e05f6_50e3.jpeg" alt="آیفون 16" /></div>
     <div class="reel"><img src="https://s6.uupload.ir/files/256-001_11_-laptop_case-tarhbox-ir_zx87.png" alt="لپ‌تاپ گیمینگ" /></div>
@@ -212,10 +212,10 @@
   let spun = false;
 
   spinBtn.addEventListener('click', () => {
-    if (spun) return; // فقط یکبار چرخش
+    if (spun) return;
     spun = true;
     spinBtn.disabled = true;
-    registerLink.style.display = 'none'; // لینک قبل از چرخش نباشه
+    registerLink.style.display = 'none'; // قبل از چرخش لینک نباشه
     resultDiv.textContent = 'در حال چرخش...';
 
     let spins = 0;
@@ -235,7 +235,7 @@
           img.alt = finalPrize.name;
         });
         resultDiv.innerHTML = `شما برنده <strong>${finalPrize.name}</strong> شدید!`;
-        registerLink.style.display = 'inline-block';
+        registerLink.style.display = 'inline-block'; // فقط بعد برنده شدن نمایش داده شود
       }
     }, 120);
   });
