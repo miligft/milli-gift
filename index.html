@@ -1,97 +1,216 @@
-
 <!DOCTYPE html>
 <html lang="fa">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="با ثبت‌نام در میلی، ۱۰۰ گرم طلا رایگان دریافت کنید. آموزش ثبت‌نام، لینک دعوت و مراحل کامل دریافت هدیه. سریع و تضمینی!">
-  <meta name="keywords" content="میلی, طلا رایگان, دریافت طلا, هدیه طلا, ثبت‌نام میلی, خرید طلا آنلاین, دعوت طلا, میلی گلد">
-  <meta name="author" content="Milli Gold Team">
-  <title>هدیه ۱۰۰ گرم طلا با ثبت‌نام رایگان در میلی | میلی گلد</title>
-  <style>
-    body {
-      font-family: Tahoma, sans-serif;
-      background: #f9f9f9;
-      color: #333;
-      padding: 20px;
-      direction: rtl;
-    }
-    .container {
-      max-width: 800px;
-      margin: auto;
-      background: #fff;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-    h1, h2 {
-      color: #d4af37;
-    }
-    img, video {
-      max-width: 100%;
-      border-radius: 10px;
-      margin: 15px 0;
-    }
-    a {
-      color: #0077cc;
-      font-weight: bold;
-      text-decoration: none;
-    }
-    .cta {
-      background: #d4af37;
-      padding: 15px;
-      border-radius: 10px;
-      text-align: center;
-      margin-top: 25px;
-    }
-    .cta a {
-      color: white;
-      font-size: 18px;
-    }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+<title>ماشین شانس با جایزه‌های جدید</title>
+<style>
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background: #121212;
+    color: #eee;
+    font-family: Tahoma, sans-serif;
+    direction: rtl;
+  }
+
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+
+  #container {
+    background: linear-gradient(135deg, #222, #111);
+    padding: 30px 20px;
+    border-radius: 20px;
+    box-shadow: 0 0 30px #00e676aa;
+    width: 90vw;
+    max-width: 400px;
+    text-align: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  h1 {
+    margin-bottom: 25px;
+    font-size: 2.2rem;
+    color: #00e676;
+    text-shadow: 0 0 15px #00e676cc;
+  }
+
+  #slotMachine {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-bottom: 25px;
+  }
+
+  .reel {
+    flex: 1;
+    max-width: 100px;
+    height: 100px;
+    border-radius: 15px;
+    background: #333;
+    border: 3px solid #00e676;
+    box-shadow: 0 0 15px #00e676bb inset;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .reel img {
+    max-width: 80%;
+    max-height: 80%;
+    border-radius: 12px;
+    user-select: none;
+    box-shadow: 0 0 20px #00e676cc;
+  }
+
+  #spinBtn {
+    background-color: #00e676;
+    color: #111;
+    border: none;
+    border-radius: 14px;
+    padding: 15px 50px;
+    font-size: 22px;
+    cursor: pointer;
+    box-shadow: 0 8px 30px #00e676aa;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+    max-width: 300px;
+  }
+
+  #spinBtn:hover:not(:disabled) {
+    background-color: #00c95e;
+    box-shadow: 0 10px 35px #00e676ff;
+  }
+
+  #spinBtn:disabled {
+    background-color: #444;
+    cursor: not-allowed;
+    box-shadow: none;
+  }
+
+  #result {
+    margin-top: 25px;
+    font-size: 22px;
+    font-weight: 800;
+    color: #00ff90;
+    min-height: 130px;
+    text-shadow: 0 0 20px #00ff90cc;
+    line-height: 1.4;
+  }
+
+  #result img {
+    margin-top: 15px;
+    width: 140px;
+    border-radius: 15px;
+    box-shadow: 0 0 30px #00ff90dd;
+  }
+
+  #registerLink {
+    display: none;
+    margin-top: 20px;
+    font-size: 21px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #00c8ff;
+    padding: 12px 28px;
+    border: 2px solid #00c8ff;
+    border-radius: 18px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  #registerLink:hover {
+    background-color: #00c8ff;
+    color: #111;
+  }
+</style>
 </head>
 <body>
-  <!-- پس‌زمینه موسیقی هیجانی با صدای کم -->
-  <audio id="bgmusic" autoplay loop>
-    <source src="https://file-examples.com/wp-content/uploads/2017/11/file_example_MP3_700KB.mp3" type="audio/mpeg">
-    مرورگر شما از پخش فایل صوتی پشتیبانی نمی‌کند.
-  </audio>
-  <script>
-    // تنظیم حجم صدا به 20%
-    document.addEventListener('DOMContentLoaded', function() {
-      var audio = document.getElementById('bgmusic');
-      audio.volume = 0.2;
-    });
-  </script>
 
-  <div class="container">
-    <h1>به دنیای طلایی میلی خوش آمدید!</h1>
-    <p>با دیدن این تصویر مطمئن می‌شی که هدیه واقعیه و تضمینی!</p>
-    <img src="https://s6.uupload.ir/files/2025-05-11_at_02.02.16.264_116k.jpg" alt="هدیه تضمینی میلی">
-    
-    <p>برای دریافت ۱۰۰ گرم طلای واقعی، فقط کافیه توی سایت میلی ثبت‌نام کنی!</p>
-    
-    <h2>میلی چیه و چرا خاصه؟</h2>
-    <p>میلی، یک پلتفرم امن و هوشمند برای خرید و فروش آنلاین طلاست که با هر ثبت‌نام، هدیه واقعی می‌ده!</p>
-    
-    <h2>چطور ۱۰۰ گرم طلا رو کاملاً رایگان دریافت کنی؟</h2>
-    <ol>
-      <li>ویدیوی کوتاه زیر رو ببین تا ثبت‌نام رو در کمتر از ۳۰ ثانیه یاد بگیری:</li>
-      <video controls autoplay muted style="width:100%; max-width:100%; height:auto;" playsinline>
-        <source src="https://milli.s3.ir-thr-at1.arvanstorage.ir/videos/main-sign-up.mp4" type="video/mp4">
-        مرورگر شما از ویدیوی HTML پشتیبانی نمی‌کند.
-      </video>
+<div id="container">
+  <h1>ماشین شانس شما</h1>
 
-      <li>حالا وقتشه با کلیک روی لینک زیر، ثبت‌نام رو شروع کنی و ۱۰ میلی طلا هدیه بگیری!</li>
-      <div class="cta">
-        <a href="https://milli.gold/app/sign-up?referralCode=milli-oe3ri" target="_blank">برای ثبت‌نام اینجا کلیک کنید</a>
-      </div>
-
-      <li>بعد از ثبت‌نام می‌تونی دوستانت رو دعوت کنی و هر دو نفرتون طلا هدیه بگیرید!</li>
-    </ol>
-    
-    <p>با هر دعوت موفق، هم شما و هم دوستتون ۱۰ میلی طلای رایگان دریافت می‌کنید — بدون قرعه‌کشی!</p>
-    <p>با معرفی بیشتر، تا سقف ۱۰۰۰ میلی (یعنی ۱۰۰ گرم طلای واقعی) معادل بیش از ۶۷ میلیون تومان طلا هدیه بگیرید!</p>
+  <div id="slotMachine">
+    <div class="reel" id="reel1"><img src="https://s6.uupload.ir/files/478_tbjp.jpg" alt="۱۰۰ گرم طلا"></div>
+    <div class="reel" id="reel2"><img src="https://s6.uupload.ir/files/256-001_11_-laptop_case-tarhbox-ir_zx87.png" alt="لپ‌تاپ گیمینگ"></div>
+    <div class="reel" id="reel3"><img src="https://s6.uupload.ir/files/apple-iphone-16-ultramarine-66dff64ce404d665a09e05f6_50e3.jpeg" alt="آیفون 16"></div>
   </div>
+
+  <button id="spinBtn">چرخاندن اسلات</button>
+
+  <div id="result"></div>
+  <a id="registerLink" href="https://B2n.ir/xd4399" target="_blank">ثبت نام برای دریافت جایزه</a>
+</div>
+
+<script>
+  const prizes = [
+    { name: '۱۰۰ گرم طلا', img: 'https://s6.uupload.ir/files/478_tbjp.jpg' },
+    { name: 'لپ‌تاپ گیمینگ', img: 'https://s6.uupload.ir/files/256-001_11_-laptop_case-tarhbox-ir_zx87.png' },
+    { name: 'آیفون 16', img: 'https://s6.uupload.ir/files/apple-iphone-16-ultramarine-66dff64ce404d665a09e05f6_50e3.jpeg' }
+  ];
+
+  const reels = [
+    document.getElementById('reel1').querySelector('img'),
+    document.getElementById('reel2').querySelector('img'),
+    document.getElementById('reel3').querySelector('img'),
+  ];
+
+  const spinBtn = document.getElementById('spinBtn');
+  const resultDiv = document.getElementById('result');
+  const registerLink = document.getElementById('registerLink');
+
+  let spinInterval;
+
+  // چک کن ببین قبلا چرخیده
+  if (localStorage.getItem('hasSpun')) {
+    spinBtn.disabled = true;
+    resultDiv.textContent = 'شما قبلاً چرخش را انجام داده‌اید.';
+    registerLink.style.display = 'inline-block';
+  }
+
+  spinBtn.addEventListener('click', () => {
+    if (localStorage.getItem('hasSpun')) {
+      alert('شما قبلا یک بار چرخش را انجام داده‌اید.');
+      return;
+    }
+
+    spinBtn.disabled = true;
+    resultDiv.textContent = '';
+    registerLink.style.display = 'none';
+
+    spinInterval = setInterval(() => {
+      reels.forEach(reel => {
+        const prize = prizes[Math.floor(Math.random() * prizes.length)];
+        reel.src = prize.img;
+        reel.alt = prize.name;
+      });
+    }, 100);
+
+    setTimeout(() => {
+      clearInterval(spinInterval);
+
+      const winningPrize = prizes[Math.floor(Math.random() * prizes.length)];
+
+      reels.forEach(reel => {
+        reel.src = winningPrize.img;
+        reel.alt = winningPrize.name;
+      });
+
+      resultDiv.innerHTML = `تبریک! شما برنده شدید:<br><strong>${winningPrize.name}</strong><br><img src="${winningPrize.img}" alt="${winningPrize.name}">`;
+      registerLink.style.display = 'inline-block';
+
+      spinBtn.disabled = true;
+      localStorage.setItem('hasSpun', 'true');
+    }, 5000);
+  });
+</script>
+
 </body>
 </html>
