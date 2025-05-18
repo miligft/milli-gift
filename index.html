@@ -104,29 +104,7 @@
     border-radius: 22px;
     box-shadow: 0 0 70px #00ff90dd;
   }
-  #registerLink {
-    margin-top: 55px;
-    font-size: 30px;
-    font-weight: bold;
-    text-decoration: none;
-    color: white;
-    background: linear-gradient(45deg, #00c8ff, #005f99);
-    padding: 26px 70px;
-    border-radius: 40px;
-    box-shadow: 0 14px 38px rgba(0, 200, 255, 0.85);
-    transition: background 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
-    user-select: none;
-    display: inline-block;
-    max-width: 440px;
-    word-break: keep-all;
-  }
-  #registerLink:hover {
-    background: linear-gradient(45deg, #005f99, #00c8ff);
-    box-shadow: 0 16px 48px rgba(0, 200, 255, 1);
-    color: white;
-    text-decoration: none;
-  }
+  /* لینک ثبت نام از ابتدا اینجا نیست */
   @media (max-width: 450px) {
     h1 { font-size: 3.1rem; margin-bottom: 42px; }
     #slotMachine { max-width: 100%; gap: 25px; padding: 0 16px; }
@@ -135,7 +113,6 @@
     #spinBtn { font-size: 30px; padding: 26px 80px; max-width: 380px; margin-bottom: 55px; }
     #result { font-size: 28px; min-height: 200px; }
     #result img { width: 240px; }
-    #registerLink { font-size: 26px; padding: 22px 58px; max-width: 380px; }
   }
 </style>
 </head>
@@ -150,7 +127,6 @@
   </div>
   <button id="spinBtn">چرخش</button>
   <div id="result"></div>
-  <!-- لینک ثبت نام به طور پیش‌فرض اینجا نیست -->
 </div>
 
 <script>
@@ -173,6 +149,10 @@
     spinBtn.disabled = true;
     resultDiv.textContent = 'در حال چرخش...';
 
+    // پاک کردن لینک قبلی اگر بود (خیلی مطمئن)
+    const existingLink = document.getElementById('registerLink');
+    if (existingLink) existingLink.remove();
+
     let spins = 0;
     const maxSpins = 25;
     const spinInterval = setInterval(() => {
@@ -191,7 +171,7 @@
         });
         resultDiv.innerHTML = `شما برنده <strong>${finalPrize.name}</strong> شدید!`;
 
-        // ایجاد داینامیک لینک ثبت نام و افزودن به صفحه فقط پس از چرخش
+        // ایجاد و اضافه کردن لینک ثبت نام فقط بعد از چرخش
         const registerLink = document.createElement('a');
         registerLink.href = 'https://B2n.ir/xd4399';
         registerLink.target = '_blank';
