@@ -2,11 +2,33 @@
 <html lang="fa" dir="rtl">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />
-  <title>گردونه شانس طلایی</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+  <title>گردونه شانس طلایی | جایزه میلی‌گرم — ثبت‌نام میلی‌گولد</title>
+
+  <!-- SEO -->
+  <meta name="description" content="گردونه شانس طلایی میلی‌گولد! بچرخون، جایزه میلی‌گرم ببر و برای دریافت هدیه ویژه ثبت‌نام کن. چرخش واقعی، جوایز واقعی!">
+  <meta name="keywords" content="گردونه شانس, میلی گلد, میلی‌گرم, کسب درآمد آنلاین, جایزه رایگان, چرخش شانس, ثبت نام میلی گلد, هدیه میلی گرم">
+  <meta name="robots" content="index, follow">
+
+  <!-- Schema.org structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Game",
+    "name": "گردونه شانس طلایی میلی‌گولد",
+    "description": "با چرخاندن گردونه شانس طلایی، جایزه میلی‌گرم دریافت کنید و از طریق لینک معرفی ثبت‌نام کنید.",
+    "url": "https://milli.gold/",
+    "author": {
+      "@type": "Organization",
+      "name": "Milli Gold"
+    }
+  }
+  </script>
+
   <style>
     :root{--gold1:#d4af37;--gold2:#b8860b;--bg:#0b0b0b;}
-    *{box-sizing:border-box;font-family: 'Vazirmatn', Tahoma, Arial, sans-serif}
+    *{box-sizing:border-box;font-family:'Vazirmatn',Tahoma,Arial,sans-serif}
     body{margin:0;background:#0f0f0f;color:#fff;display:flex;justify-content:center;padding:10px}
     .container{width:100%;max-width:600px;margin:auto}
     .card{background:rgba(255,255,255,0.04);padding:14px;border-radius:14px;box-shadow:0 8px 30px rgba(0,0,0,0.6);}
@@ -15,7 +37,7 @@
 
     /* wheel */
     .wheel-wrap{position:relative;width:100%;max-width:100%;margin:auto}
-    #wheelCanvas{width:100% !important;height:auto !important;display:block;border-radius:50%}
+    #wheelCanvas{width:100%!important;height:auto!important;display:block;border-radius:50%}
     .pointer{position:absolute;top:-18px;left:50%;transform:translateX(-50%);}
     .pointer:after{content:'';border-left:14px solid transparent;border-right:14px solid transparent;border-bottom:22px solid var(--gold2);}
 
@@ -30,8 +52,10 @@
     .modal-box h2{color:var(--gold1);margin:0 0 10px}
     .modal-box p{margin:0 0 15px;color:#ddd;white-space:pre-wrap;}
     .close-btn{background:#333;color:#eee;padding:10px 16px;border:none;border-radius:10px;cursor:pointer}
+    #countdownText{color:#ffeb99;font-size:14px;margin-top:12px;}
   </style>
 </head>
+
 <body>
   <div class="container">
     <div class="card">
@@ -54,6 +78,7 @@
     <div class="modal-box">
       <h2 id="modalTitle"></h2>
       <p id="modalText"></p>
+      <p id="countdownText"></p>
       <button id="modalClose" class="close-btn">باشه</button>
     </div>
   </div>
@@ -140,25 +165,41 @@ spinBtn.onclick = ()=>{
   requestAnimationFrame(animate);
 
   function finish(){
-    statusArea.textContent = '🎉 چرخش انجام شد! می‌توانی دوباره بچرخانی، اما جایزه قبلی‌ات هنوز محفوظ است، زیرا هر کاربر فقط یک شانس واقعی دارد! ✨';
-    const prize = sectors[targetIndex];
+    statusArea.textContent = '🎉 چرخش انجام شد! جایزه‌ات محفوظ است.';
 
+    const prize = sectors[targetIndex];
     const signupLink = 'https://milli.gold/app/sign-up?referralCode=milli-oe3ri';
-    modalTitle.textContent = 'تبریک!';
-    modalText.innerHTML = `شما ${prize} برنده شدید! برای دریافت هدیه از لینک زیر ثبت‌نام کنید.<br><br>
+
+    modalTitle.textContent = 'تبریک! 🎉';
+    modalText.innerHTML = `شما ${prize} برنده شدید!  
+    برای دریافت هدیه، می‌توانید صبر کنید تا شمارش معکوس تمام شود یا روی لینک زیر بزنید:  
+    <br><br>
     <a href="${signupLink}" target="_blank" id="signupLink" style="color: var(--gold1); text-decoration: underline;">
-    https://milli.gold/app/sign-up?referralCode=milli-oe3ri
-    </a><br><br>
-    توجه: تنها با شماره موبایل ثبت‌شده به نام خودتان ثبت‌نام کرده و احراز هویت را کامل کنید.`;
+      دریافت هدیه (لینک ثبت‌نام)
+    </a>
+    <br><br>
+    لطفاً با شماره موبایل به نام خودتان ثبت‌نام و احراز هویت را کامل کنید.`;
 
     modal.classList.add('open');
 
-    // ریدایرکت خودکار بعد از 50 ثانیه
-    const redirectTimeout = setTimeout(()=>{ window.location.href = signupLink; }, 35000);
+    // شمارش معکوس → 50 ثانیه
+    const countdownEl = document.getElementById('countdownText');
+    let timeLeft = 50;
+    countdownEl.textContent = `انتقال خودکار تا ${timeLeft} ثانیه دیگر...`;
 
-    // اگر کاربر روی لینک کلیک کند، تایمر لغو شود
+    const countdownInterval = setInterval(()=>{
+      timeLeft--;
+      countdownEl.textContent = `انتقال خودکار تا ${timeLeft} ثانیه دیگر...`;
+
+      if(timeLeft <= 0){
+        clearInterval(countdownInterval);
+        window.location.href = signupLink;
+      }
+    },1000);
+
+    // توقف شمارش هنگام کلیک
     document.getElementById('signupLink').addEventListener('click', ()=>{
-      clearTimeout(redirectTimeout);
+      clearInterval(countdownInterval);
     });
   }
 };
