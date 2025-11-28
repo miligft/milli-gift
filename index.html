@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-  <title>گردونه شانس طلایی | جایزه میلی‌گرم — ثبت‌نام میلی‌گولد</title>
+  <title>گردونه شانس طلایی | جایزه طلایی</title>
 
   <!-- SEO -->
   <meta name="description" content="گردونه شانس طلایی میلی‌گولد! بچرخون، جایزه میلی‌گرم ببر و برای دریافت هدیه ویژه ثبت‌نام کن. چرخش واقعی، جوایز واقعی!">
@@ -14,11 +14,11 @@
   <!-- Schema.org structured data -->
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org",
+    "@context": "",
     "@type": "Game",
-    "name": "گردونه شانس طلایی میلی‌گولد",
-    "description": "با چرخاندن گردونه شانس طلایی، جایزه میلی‌گرم دریافت کنید و از طریق لینک معرفی ثبت‌نام کنید.",
-    "url": "https://milli.gold/",
+    "name": "گردونه شانس طلایی ",
+    "description": "با چرخاندن گردونه شانس طلایی، جایزه طلایی دریافت کنید .",
+    "url": "",
     "author": {
       "@type": "Organization",
       "name": "Milli Gold"
@@ -59,16 +59,16 @@
 <body>
   <div class="container">
     <div class="card">
-      <h1>گردونه شانس طلایی</h1>
-      <p>گردونه رو بچرخون و شانس خودتو امتحان کن! </p>
+      <h1>✨️گردونه شانس طلایی✨️</h1>
+      <p>🎁گردونه رو بچرخون و شانس خودتو امتحان کن!🎁 </p>
 
       <div class="wheel-wrap">
         <div class="pointer"></div>
         <canvas id="wheelCanvas"></canvas>
       </div>
 
-      <button id="spinBtn" class="btn">شروع چرخش</button>
-      <div id="statusArea" class="status">یکبار شانس چرخش گردونه</div>
+      <button id="spinBtn" class="btn">💥شروع چرخش💥</button>
+      <div id="statusArea" class="status">🎊یکبار شانس چرخش گردونه🎊</div>
 
     </div>
   </div>
@@ -175,16 +175,16 @@ spinBtn.onclick = ()=>{
     برای دریافت هدیه، می‌توانید صبر کنید تا شمارش معکوس تمام شود یا روی لینک زیر بزنید:  
     <br><br>
     <a href="${signupLink}" target="_blank" id="signupLink" style="color: var(--gold1); text-decoration: underline;">
-      دریافت هدیه (لینک ثبت‌نام)
+       برای دریافت هدیه اینجا کلیک کن!
     </a>
     <br><br>
-    لطفاً با شماره موبایل به نام خودتان ثبت‌نام و احراز هویت را کامل کنید.`;
+    توجه:برای دریافت هدیه باید با شماره موبایل به نام خودتان ثبت‌نام و احراز هویت را کامل کنید.`;
 
     modal.classList.add('open');
 
-    // شمارش معکوس → 50 ثانیه
+    // شمارش معکوس → 30 ثانیه
     const countdownEl = document.getElementById('countdownText');
-    let timeLeft = 50;
+    let timeLeft = 30;
     countdownEl.textContent = `انتقال خودکار تا ${timeLeft} ثانیه دیگر...`;
 
     const countdownInterval = setInterval(()=>{
